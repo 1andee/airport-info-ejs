@@ -1,0 +1,11 @@
+body {
+  background-color: white;
+  color: black;
+}
+.alert {
+    color: red;
+}
+#chartContainer a {
+  color: black;
+  text-decoration: underline;
+}

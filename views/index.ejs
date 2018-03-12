@@ -1,0 +1,20 @@
+<html>
+
+  <head>
+    <%- include('partials/_head') %>
+  </head>
+
+  <body>
+    <div>
+      <%- include('partials/_pageheader') %>
+      <br>
+      <br>
+      <form action="/chart" method="POST">
+        <label for="chart">Enter an airport:</label>
+        <input id="airport" type="text" name="airport" style="width: 30%;" placeholder="Enter an ICAO code" />
+        <input type="submit" value="Submit" />
+      </form>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h1>Welcome to the Airport Wx/NOTAM/Diagram fetcher</h1>
+</div>
+
+<% if (messages) { %>
+  <% for (key in messages) { %>
+    <div class="alert alert-<%= [key] %>">
+      <span><%= messages[key] %></span>
+    </div>
+  <% } %>
+<% } %>

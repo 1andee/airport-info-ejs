@@ -1,0 +1,61 @@
+<html>
+
+  <head>
+    <%- include('partials/_head') %>
+  </head>
+
+  <body>
+    <div>
+      <%- include('partials/_pageheader') %>
+      <br>
+      <br>
+      <form action="/chart" method="POST">
+        <label for="chart">Enter an airport:</label>
+        <input id="airport" type="text" name="airport" style="width: 30%;" placeholder="Enter an ICAO code" />
+        <input type="submit" value="Submit" />
+      </form>
+        <div class="container">
+          <% if (icao) { %>
+            <h2><%= icao %></h2>
+            <% if (locals.metar) { %>
+              <div id="metarContainer">
+                <h2>Latest METAR</h2>
+                <h3><%= metar %></h3>
+              </div>
+            <% } %>
+            <% if (locals.taf) { %>
+              <div id="tafContainer">
+                <h2>Latest TAF</h2>
+                <h3><%= taf %></h3>
+              </div>
+            <% } %>
+            <% if (locals.notamList) { %>
+              <div id="notamContainer">
+                <% if (notamList[0]["notams"].length === 0) { %>
+                  <span>No active NOTAMs.</span>
+                <% } else if (notamList[0]["notams"].length > 0) { %>
+                  <h2>Current NOTAMs</h2>
+                    <% notamList[0]["notams"].forEach((item) => { %>
+                      <div class="singleNotam" style="margin-top: 6px;">
+                        <span><%= item %></span>
+                      </div>
+                    <% }) %>
+                <% } %>
+              </div>
+            <% } %>
+              <% if (locals.chartObj) { %>
+                <div id="chartContainer">
+                <h2>Chart Listing</h2>
+                  <% chartObj.forEach((item) => { %>
+                    <div class="singleChartLink" style="margin-top: 6px;">
+                      <a href="<%= item["procedure"]["url"] %>" target="_blank">
+                        <span><%= item["procedure"]["name"] %></span>
+                      </a>
+                    </div>
+                  <% }) %>
+                </div>
+              <% } %>
+          <% } %>
+        </div>
+  </body>
+</html>

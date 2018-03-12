@@ -1,0 +1,27 @@
+{
+  "name": "airport-thingy",
+  "version": "0.0.1",
+  "description": "A small side-project. Returns METAR, TAF, and airport diagram link in terminal window.",
+  "main": "index.ejs",
+  "scripts": {
+    "start": "nodemon express_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Duke",
+  "license": "ISC",
+  "dependencies": {
+    "airport-diagrams": "^1.1.15",
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-flash": "0.0.2",
+    "icao": "^1.0.1",
+    "metar-taf": "0.0.2",
+    "notams": "^1.1.8",
+    "terminal-procedures": "^0.3.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
